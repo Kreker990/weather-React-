@@ -1,0 +1,17 @@
+.search_conteiner input{
+    width: 200px;
+    font-size: 18px;
+}
+.search_conteiner button{
+    width: 150px;
+    height: 25px;
+    background-color: rgb(103, 152, 216);
+    border-color: grey;
+}
+.search_conteiner{
+    padding-top: 40px;
+    margin: 0 auto;
+    width: 30%;
+    justify-content: center;
+
+}

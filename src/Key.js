@@ -1,0 +1,1 @@
+export const KEY = '&appid=b067377a72c98ae6963cdae2e35408d9'

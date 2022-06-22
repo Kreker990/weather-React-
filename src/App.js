@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react'
+import './App.css'
+import Output from './components/Output/Output'
+import Search from './components/Search/Search'
+import { API } from './Config'
+import { KEY } from './Key'
 
-function App() {
+export default function App() {
+  const [count, setCount] = useState()
+  const [data, setData] = useState()
+  const getWeather = async (e) => {
+    e.preventDefault()
+    const request = await fetch(API + count + KEY)
+    const response = await request.json()
+    setData(response)
+    console.log(response);
+
+  }
+  // useEffect(() => {
+  //   getWeather()
+  // }, [count])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='body'>
+      <Search 
+        count={count}
+        setCount={setCount}
+        getWeather={getWeather}
+      />
+      <Output data={data}/>
     </div>
-  );
+  )
 }
 
-export default App;
